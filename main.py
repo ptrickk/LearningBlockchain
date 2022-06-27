@@ -28,11 +28,14 @@ def main() -> None:
     t2.signTransaction(k2)
 
     bc.addTransaction(t1)
+
+    bc.minePendingTransactions(k1.publicKey)
+
     bc.addTransaction(t2)
 
     bc.minePendingTransactions(k1.publicKey)
-    bc.minePendingTransactions(k1.publicKey)
-    print('Balance: ', bc.getAdressBalance(k1.publicKey))
+    print('Balance 1: ', bc.getAdressBalance(k1.publicKey))
+    print('Balance 2: ', bc.getAdressBalance(k2.publicKey))
     print(bc.Validate())
 
     bc.printChain()
